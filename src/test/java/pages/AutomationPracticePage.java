@@ -62,7 +62,7 @@ public class AutomationPracticePage {
     }
 
     public AutomationPracticePage uploadPicture(String fileName) {
-        $("#uploadPicture").uploadFile(new File("src/test/java/resources/" + fileName));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/" + fileName));
 
         return this;
     }
