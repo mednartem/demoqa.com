@@ -21,9 +21,9 @@ public class FormTests extends TestBase {
                 subject = "English",
                 state = "NCR",
                 city = "Delhi",
-                dayBirthday = "24",
-                monthBirthday = "September",
-                yearBirthday = "1995";
+                day = "24",
+                month = "September",
+                year = "1995";
 
         open("https://demoqa.com/automation-practice-form");
 
@@ -33,8 +33,8 @@ public class FormTests extends TestBase {
                 .enterEmail(email)
                 .enterMobileNumber(mobileNumber)
                 .selectGender(gender)
-                .selectDateBirthday(dayBirthday, monthBirthday, yearBirthday)
-                .selectSubject(subject)
+                .setDateBirthday(day, month, year)
+                .setSubject(subject)
                 .selectHobby(hobby)
                 .uploadPicture(fileName)
                 .enterCurrentAddress(currentAddress)
@@ -44,7 +44,7 @@ public class FormTests extends TestBase {
 
         automationPracticeFormPage
                 .verifyAllFilledCorrect(firstName, lastName, email, gender, mobileNumber,
-                        dayBirthday, monthBirthday, yearBirthday, subject,
+                        day, month, year, subject,
                         hobby, fileName, state, city);
 
     }

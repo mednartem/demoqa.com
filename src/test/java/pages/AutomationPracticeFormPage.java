@@ -39,7 +39,7 @@ public class AutomationPracticeFormPage {
         return this;
     }
 
-    public AutomationPracticeFormPage selectDateBirthday(String day, String month, String year) {
+    public AutomationPracticeFormPage setDateBirthday(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__month-select").selectOption(month);
@@ -48,8 +48,8 @@ public class AutomationPracticeFormPage {
         return this;
     }
 
-    public AutomationPracticeFormPage selectSubject(String subjectName) {
-        $("#subjectsInput").setValue("e");
+    public AutomationPracticeFormPage setSubject(String subjectName) {
+        $("#subjectsInput").setValue(subjectName);
         $$("div[id^=\"react-select-2-option\"]").find(text(subjectName)).click();
 
         return this;
