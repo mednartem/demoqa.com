@@ -1,37 +1,36 @@
-package tests;
+package tests.ui;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.AutomationPracticePage;
+import tests.TestBase;
 
-import static com.codeborne.selenide.Selenide.open;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 
-public class End2EndAutomationPracticeTest {
+public class End2EndAutomationPracticeTest extends TestBase {
     private AutomationPracticePage automationPracticePage;
 
     @BeforeEach
     void setup() {
-        open("https://demoqa.com/automation-practice-form");
         automationPracticePage = new AutomationPracticePage();
     }
 
     @Test
     void end2EndAutomationPracticeTest() {
-        String firstName = randomAlphabetic(10);
-        String lastName = randomAlphabetic(10);
-        String email = randomAlphabetic(5).concat("@test.test");
-        String mobileNumber = randomNumeric(10);
-        String month = "October";
-        String currentAddress = randomAlphabetic(20);
-        String hobby = "Sports";
-        String gender = "Male";
-        String nameFile = "testFile.jpg";
-        String birthday;
-        String subject;
-        String state;
-        String city;
+        String firstName = randomAlphabetic(10),
+                lastName = randomAlphabetic(10),
+                email = randomAlphabetic(5).concat("@test.test"),
+                mobileNumber = randomNumeric(10),
+                currentAddress = randomAlphabetic(20),
+                hobby = "Sports",
+                gender = "Male",
+                nameFile = "testFile.jpg",
+                birthday,
+                subject,
+                state,
+                city;
+
 
         automationPracticePage
                 .enterFirstName(firstName)
@@ -41,8 +40,8 @@ public class End2EndAutomationPracticeTest {
                 .selectGender(gender)
                 .clickCalendar()
                 .selectRandomYearInTheCalendar()
-                .selectMonthInTheCalendar(month)
-                .selectRandomDateInTheCalendar()
+                .selectOctoberMonthInTheCalendar()
+                .selectDateInTheCalendar("23")
                 .selectRandomSubject()
                 .selectHobby(hobby)
                 .uploadPicture(nameFile)
@@ -59,9 +58,9 @@ public class End2EndAutomationPracticeTest {
         automationPracticePage
                 .clickSubmitBtn()
                 .checkAllFilledRight(firstName, lastName, email, gender, mobileNumber,
-                        birthday, subject, hobby, nameFile, state, city)
+                        birthday.replace("Oct ", "October,"), subject, hobby,
+                        nameFile, state, city)
         ;
-
 
     }
 }
