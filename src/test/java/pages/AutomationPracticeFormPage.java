@@ -89,6 +89,7 @@ public class AutomationPracticeFormPage {
 
     public AutomationPracticeFormPage clickSubmitBtn() {
         $("#submit").click();
+
         return this;
     }
 
