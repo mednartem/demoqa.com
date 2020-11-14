@@ -6,10 +6,10 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 
-public class End2EndAutomationPracticeTest extends TestBase {
+public class FormTests extends TestBase {
 
     @Test
-    void end2EndAutomationPracticeTest() {
+    void fillFormTest() {
         String firstName = randomAlphabetic(10),
                 lastName = randomAlphabetic(10),
                 email = randomAlphabetic(5).concat("@test.test"),
@@ -27,7 +27,7 @@ public class End2EndAutomationPracticeTest extends TestBase {
 
         open("https://demoqa.com/automation-practice-form");
 
-        automationPracticePage
+        automationPracticeFormPage
                 .enterFirstName(firstName)
                 .enterLastName(lastName)
                 .enterEmail(email)
@@ -42,8 +42,8 @@ public class End2EndAutomationPracticeTest extends TestBase {
                 .selectCity(city)
                 .clickSubmitBtn();
 
-        automationPracticePage
-                .verifyAllFilledRight(firstName, lastName, email, gender, mobileNumber,
+        automationPracticeFormPage
+                .verifyAllFilledCorrect(firstName, lastName, email, gender, mobileNumber,
                         dayBirthday, monthBirthday, yearBirthday, subject,
                         hobby, fileName, state, city);
 

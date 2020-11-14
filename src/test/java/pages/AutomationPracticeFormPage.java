@@ -7,39 +7,39 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticePage {
+public class AutomationPracticeFormPage {
 
-    public AutomationPracticePage enterFirstName(String firstName) {
+    public AutomationPracticeFormPage enterFirstName(String firstName) {
         $("#firstName").setValue(firstName);
 
         return this;
     }
 
-    public AutomationPracticePage enterLastName(String lastName) {
+    public AutomationPracticeFormPage enterLastName(String lastName) {
         $("#lastName").setValue(lastName);
 
         return this;
     }
 
-    public AutomationPracticePage enterEmail(String email) {
+    public AutomationPracticeFormPage enterEmail(String email) {
         $("#userEmail").setValue(email);
 
         return this;
     }
 
-    public AutomationPracticePage enterMobileNumber(String mobileNumber) {
+    public AutomationPracticeFormPage enterMobileNumber(String mobileNumber) {
         $("#userNumber").setValue(mobileNumber);
 
         return this;
     }
 
-    public AutomationPracticePage selectGender(String gender) {
+    public AutomationPracticeFormPage selectGender(String gender) {
         $(byText(gender)).click();
 
         return this;
     }
 
-    public AutomationPracticePage selectDateBirthday(String day, String month, String year) {
+    public AutomationPracticeFormPage selectDateBirthday(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__month-select").selectOption(month);
@@ -48,46 +48,46 @@ public class AutomationPracticePage {
         return this;
     }
 
-    public AutomationPracticePage selectSubject(String subjectName) {
+    public AutomationPracticeFormPage selectSubject(String subjectName) {
         $("#subjectsInput").setValue("e");
         $$("div[id^=\"react-select-2-option\"]").find(text(subjectName)).click();
 
         return this;
     }
 
-    public AutomationPracticePage selectHobby(String hobby) {
+    public AutomationPracticeFormPage selectHobby(String hobby) {
         $(byText(hobby)).click();
 
         return this;
     }
 
-    public AutomationPracticePage uploadPicture(String fileName) {
+    public AutomationPracticeFormPage uploadPicture(String fileName) {
         $("#uploadPicture").uploadFile(new File("src/test/resources/" + fileName));
 
         return this;
     }
 
-    public AutomationPracticePage enterCurrentAddress(String currentAddress) {
+    public AutomationPracticeFormPage enterCurrentAddress(String currentAddress) {
         $("#currentAddress").setValue(currentAddress);
 
         return this;
     }
 
-    public AutomationPracticePage selectState(String state) {
+    public AutomationPracticeFormPage selectState(String state) {
         $(byText("Select State")).scrollTo().click();
         $$("div[id^=\"react-select-3-option\"]").find(text(state)).click();
 
         return this;
     }
 
-    public AutomationPracticePage selectCity(String city) {
+    public AutomationPracticeFormPage selectCity(String city) {
         $(byText("Select City")).scrollTo().click();
         $$("div[id^=\"react-select-4-option\"]").find(text(city)).click();
 
         return this;
     }
 
-    public AutomationPracticePage clickSubmitBtn() {
+    public AutomationPracticeFormPage clickSubmitBtn() {
         $("#submit").click();
         return this;
     }
@@ -96,9 +96,9 @@ public class AutomationPracticePage {
         $x(String.format("//td[text()=\"%s\"]", key)).sibling(0).shouldHave(exactText(value));
     }
 
-    public void verifyAllFilledRight(String firstName, String lastName, String email, String gender, String mobileNumber,
-                                     String dayBirthday, String monthBirthday, String yearBirthday, String subject,
-                                     String hobby, String fileName, String state, String city) {
+    public void verifyAllFilledCorrect(String firstName, String lastName, String email, String gender, String mobileNumber,
+                                       String dayBirthday, String monthBirthday, String yearBirthday, String subject,
+                                       String hobby, String fileName, String state, String city) {
         verifyRowValue("Student Name", firstName + " " + lastName);
         verifyRowValue("Student Email", email);
         verifyRowValue("Gender", gender);

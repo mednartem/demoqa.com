@@ -1,8 +1,8 @@
 package tests;
 
-import pages.AutomationPracticePage;
+import pages.AutomationPracticeFormPage;
 
 public class TestBase {
-    AutomationPracticePage automationPracticePage = new AutomationPracticePage();
+    AutomationPracticeFormPage automationPracticeFormPage = new AutomationPracticeFormPage();
 
 }
