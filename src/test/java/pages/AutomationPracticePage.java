@@ -113,7 +113,6 @@ public class AutomationPracticePage {
 
     @Step
     public AutomationPracticePage selectRandomState() {
-//        $("#react-select-3-input").setValue("n");
         $(".css-1wa3eu0-placeholder").scrollTo().click();
         getRandomElementFromList($$("div[id^=\"react-select-3-option\"]")).click();
         return this;
@@ -126,7 +125,6 @@ public class AutomationPracticePage {
 
     @Step
     public AutomationPracticePage selectRandomCity() {
-//        $("#react-select-4-input").setValue("a");
         $(".css-1wa3eu0-placeholder").scrollTo().click();
         getRandomElementFromList($$("div[id^=\"react-select-4-option\"]")).click();
         return this;
