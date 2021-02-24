@@ -1,15 +1,18 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.AutomationPracticeFormPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
 
-public class FormTests extends TestBase {
+public class FormTests {
 
     @Test
     void fillFormTest() {
+        AutomationPracticeFormPage automationPracticeFormPage = new AutomationPracticeFormPage();
+
         String firstName = randomAlphabetic(10),
                 lastName = randomAlphabetic(10),
                 email = randomAlphabetic(5).concat("@test.test"),
